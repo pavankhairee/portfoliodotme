@@ -5,6 +5,7 @@ interface LinkProps {
     startIcon: ReactElement
     linkName: string
     link: string
+    download?: boolean;
 }
 
 export function LinkComponent(props: LinkProps) {
@@ -16,6 +17,7 @@ export function LinkComponent(props: LinkProps) {
                 href={props.link}
                 className="text-black"
                 target="_blank"
+                download={true}
                 rel="noopener noreferrer"
             >
                 {props.linkName}

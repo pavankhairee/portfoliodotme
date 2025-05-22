@@ -10,10 +10,6 @@ import { ToolComponents } from './componets/ToolComponent'
 import { useState } from 'react'
 import { Popup } from './componets/ProjectPopUp'
 
-function alertblock() {
-  alert('helo')
-}
-
 function App() {
 
   const [showProject1, setShowProject1] = useState(false)
@@ -22,15 +18,19 @@ function App() {
   return (
     <>
       <div className='w-screen h-screen'>
-        <div className='bg-amber-200 h-35'>cover page</div>
-        <h1 className='pl-28 text-3xl'>pavankh</h1>
+        <div className="bg-amber-200 h-48 w-full overflow-hidden">
+          <img
+            src="/cover.png"
+            className="w-full h-full object-cover"
+            alt="Cover"
+          />
+        </div>
+        <h1 className='pl-28 text-3xl font-bold'>Pavankumar Khaire</h1>
         <div className='pl-28 pr-28 flex justify-around gap-2'>
-          <div className='p-2'>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Omnis,
-            aspernatur vero. Error impedit sapiente consectetur
-            aliquid eius aspernatur numquam obcaecati eos,
-            laudantium alias, fugit officia, veritatis illo quidem sed sit.</div>
+          <div className='p-2'>I’m a final-year MSc in Computer Applications student with strong technical skills in full-stack development using the MERN stack, Java, and MySQL. I enjoy solving real-world problems through clean, efficient code and intuitive user experiences. With a solid grasp of both frontend and backend technologies, I’m passionate about creating scalable web applications and continuously expanding my knowledge. I’m currently seeking a software development role where I can apply my skills, collaborate with driven teams, and grow in a professional environment.</div>
           <div className='space-y-2'>
-            <LinkComponent startIcon={<Resume />} linkName={'Resume'} link={''} />
+            <LinkComponent startIcon={<Resume />} linkName={'Resume'} link={'/Pavan-Resume.pdf'} // Path from public folder
+              download />
             <LinkComponent startIcon={<GitHub />} linkName={'Git-Hub'} link={'https://github.com/pavankhairee'} />
             <LinkComponent startIcon={<LinkdenIcon />} linkName={'Linked'} link={'https://www.linkedin.com/in/pavankumar-khaire-95a592213/'} />
             <LinkComponent startIcon={<Mail />} linkName={'Mail'} link={'mailto:pavankhaire2002@gmail.com?subject=Hello&body=I%20want%20to%20connect%20with%20you'}
@@ -46,7 +46,7 @@ function App() {
             {showProject1 && (
               <Popup
                 onClose={() => setShowProject1(false)}
-                gitLink={''}
+                gitLink="https://github.com/pavankhairee/the-social-brain"
                 description='Social Media Aggregation and Interaction Platform'
                 tools='React, Node.js, Express, MongoDB, Tailwind CSS, JWT'
                 features={[
@@ -62,7 +62,7 @@ function App() {
             {showProject2 && (
               <Popup
                 onClose={() => setShowProject2(false)}
-                gitLink="https://github.com/your-hotel-service-repo"
+                gitLink="https://github.com/pavankhairee/room-service-online"
                 description="A system for hotel guests to order food via a responsive web app."
                 tools="React.js, Tailwind CSS, Node.js, PostgreSQL, Express.js"
                 features={[
@@ -80,7 +80,7 @@ function App() {
             {showProject3 && (
               <Popup
                 onClose={() => setShowProject3(false)}
-                gitLink="https://github.com/your-chat-app-repo"
+                gitLink="https://github.com/pavankhairee/xo-chat-room"
                 description="A real-time chat application built using MERN and WebSockets."
                 tools="MERN Stack, Tailwind CSS"
                 features={[
@@ -105,6 +105,8 @@ function App() {
             <ToolComponents name="JavaScript" image="/icons/javascript.png" />
             <ToolComponents name="JavaScript" image="/icons/typescript.png" />
             <ToolComponents name="MySQL" image="/icons/postgresql.png" />
+            <ToolComponents name='Postgress' image='/icons/postgresql.png' />
+            <ToolComponents name='Express' image='/icons/express.png' />
           </div>
         </div>
       </div >
