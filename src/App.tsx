@@ -7,9 +7,18 @@ import { LinkdenIcon } from './icons/LinkedIn'
 import { Mail } from './icons/Mail'
 import { ProjectComponent } from './componets/ProjectComponent'
 import { ToolComponents } from './componets/ToolComponent'
-import { Link } from 'react-router-dom'
+import { useState } from 'react'
+import { Popup } from './componets/ProjectPopUp'
+
+function alertblock() {
+  alert('helo')
+}
 
 function App() {
+
+  const [showProject1, setShowProject1] = useState(false)
+  const [showProject2, setShowProject2] = useState(false)
+  const [showProject3, setShowProject3] = useState(false)
   return (
     <>
       <div className='w-screen h-screen'>
@@ -22,18 +31,68 @@ function App() {
             laudantium alias, fugit officia, veritatis illo quidem sed sit.</div>
           <div className='space-y-2'>
             <LinkComponent startIcon={<Resume />} linkName={'Resume'} link={''} />
-            <LinkComponent startIcon={<GitHub />} linkName={'Git-Hub'} link={''} />
-            <LinkComponent startIcon={<LinkdenIcon />} linkName={'Linked'} link={''} />
-            <LinkComponent startIcon={<Mail />} linkName={'Mail'} link={''} />
+            <LinkComponent startIcon={<GitHub />} linkName={'Git-Hub'} link={'https://github.com/pavankhairee'} />
+            <LinkComponent startIcon={<LinkdenIcon />} linkName={'Linked'} link={'https://www.linkedin.com/in/pavankumar-khaire-95a592213/'} />
+            <LinkComponent startIcon={<Mail />} linkName={'Mail'} link={'mailto:pavankhaire2002@gmail.com?subject=Hello&body=I%20want%20to%20connect%20with%20you'}
+            />
           </div>
         </div>
 
         <div className='pl-28 pr-28 pt-2'>
           <h1 className='text-3xl bg-gray-300 p-2'>MY WORK</h1>
-          <div className='flex justify-between gap-2'>
-            <ProjectComponent name={'The Social Brain'} image={'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRo9ZMzEIOwklMVioIiJBYnUZ9VVh0uwcHpDA&s'} />
-            <ProjectComponent name={'Hotel Room Service'} image={'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRo9ZMzEIOwklMVioIiJBYnUZ9VVh0uwcHpDA&s'} />
-            <ProjectComponent name={'Chat Application'} image={'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRo9ZMzEIOwklMVioIiJBYnUZ9VVh0uwcHpDA&s'} />
+          <div className='flex justify-between gap-2 cursor-pointer'>
+
+            <ProjectComponent onClick={() => setShowProject1(true)} name={'The Social Brain'} image={'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRo9ZMzEIOwklMVioIiJBYnUZ9VVh0uwcHpDA&s'} />
+            {showProject1 && (
+              <Popup
+                onClose={() => setShowProject1(false)}
+                gitLink={''}
+                description='Social Media Aggregation and Interaction Platform'
+                tools='React, Node.js, Express, MongoDB, Tailwind CSS, JWT'
+                features={[
+                  "Built a dynamic user interface using functional components and state management with hooks.",
+                  'JWT-based user authentication with secure access tokens and protected routes Generated access tokens upon successful login/signup to authorize user sessions.',
+                  "Created a RESTful API to handle data fetching and user interactions.",
+                  "Implemented client-side filtering. Allowed users to filter aggregated content based on platform,(image, text, link).",
+                  "Developed a feature to generate shareable link with curated content, stored in the database with a uniqueID."
+                ]}
+              />)}
+
+            <ProjectComponent onClick={() => setShowProject2(true)} name={'Hotel Room Service'} image={'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRo9ZMzEIOwklMVioIiJBYnUZ9VVh0uwcHpDA&s'} />
+            {showProject2 && (
+              <Popup
+                onClose={() => setShowProject2(false)}
+                gitLink="https://github.com/your-hotel-service-repo"
+                description="A system for hotel guests to order food via a responsive web app."
+                tools="React.js, Tailwind CSS, Node.js, PostgreSQL, Express.js"
+                features={[
+                  "Built a responsive React.js hotel room service app with dynamic menu, cart, and order placement features.",
+                  "Integrated secure API calls (Axios, JWT) for orders, billing, and history with localStorage-based cart management.",
+                  "Created reusable TypeScript + Tailwind UI components for scalable and consistent design.",
+                  "Designed and implemented a relational database schema using PostgreSQL with normalization and foreign keys.",
+                  "Developed a secure auth system: guests log in using phone/room number, admins with credentials (JWT).",
+                  "Built RESTful Express.js APIs (with TypeScript) to manage sign-up, orders, billing, and menu updates.",
+                  "Handled complex SQL queries (JOINs) to retrieve real-time order and billing info per guest/admin view."
+                ]}
+              />)}
+
+            <ProjectComponent onClick={() => setShowProject3(true)} name={'Chat Application'} image={'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRo9ZMzEIOwklMVioIiJBYnUZ9VVh0uwcHpDA&s'} />
+            {showProject3 && (
+              <Popup
+                onClose={() => setShowProject3(false)}
+                gitLink="https://github.com/your-chat-app-repo"
+                description="A real-time chat application built using MERN and WebSockets."
+                tools="MERN Stack, Tailwind CSS"
+                features={[
+                  "Developed a real-time chat app using WebSockets for two users to chat in a shared room.",
+                  "Implemented room-based communication with Socket.IO for managing sessions and live message updates.",
+                  "Built with MongoDB, Express.js, React.js, and Node.js using TypeScript for better type safety.",
+                  "Integrated turn-based logic to support in-chat games or alternate actions."
+                ]}
+              />
+
+            )}
+
           </div>
         </div>
 
@@ -43,15 +102,12 @@ function App() {
             <ToolComponents name="React" image="/icons/react.png" />
             <ToolComponents name="Node.js" image="/icons/node.png" />
             <ToolComponents name="MongoDB" image="/icons/mongodb.png" />
-            <ToolComponents name="Tailwind" image="/icons/tailwind.png" />
             <ToolComponents name="JavaScript" image="/icons/javascript.png" />
             <ToolComponents name="JavaScript" image="/icons/typescript.png" />
             <ToolComponents name="MySQL" image="/icons/postgresql.png" />
-            <ToolComponents name="MySQL" image="/icons/mysql.png" />
-
           </div>
         </div>
-      </div>
+      </div >
     </>
   )
 }

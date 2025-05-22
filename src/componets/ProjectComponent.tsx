@@ -2,14 +2,15 @@
 interface ProjectProps {
     name: string
     image: string
-
+    onClick: () => void
 }
 
 export function ProjectComponent(props: ProjectProps) {
 
     return (
         <>
-            <div className="flex flex-col w-full pt-2 bg-white rounded-xl overflow-hidden shadow hover:shadow-md transition-shadow">
+            <div onClick={props.onClick} className="flex flex-col w-full pt-2 bg-white rounded-xl overflow-hidden shadow hover:shadow-md transition-shadow">
+
                 <img
                     src={props.image}
                     alt={props.name}
