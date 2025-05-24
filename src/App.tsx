@@ -18,7 +18,7 @@ function App() {
   const [showProject3, setShowProject3] = useState(false)
   return (
     <>
-      <div className='w-screen h-screen'>
+      <div className='w-full min-h-screen overflow-x-hidden'>
         <div className="bg-amber-200 h-48 w-full overflow-hidden">
           <img
             src="/cover.png"
@@ -26,23 +26,24 @@ function App() {
             alt="Cover"
           />
         </div>
-        <h1 className='pl-28 text-3xl font-bold'>Pavankumar Khaire</h1>
-        <div className='pl-28 pr-28 flex justify-around gap-2'>
-          <div className='p-2'>I’m a final-year MSc in Computer Applications student with strong technical skills in full-stack development using the MERN stack, Java, and MySQL. I enjoy solving real-world problems through clean, efficient code and intuitive user experiences. With a solid grasp of both frontend and backend technologies, I’m passionate about creating scalable web applications and continuously expanding my knowledge. I’m currently seeking a software development role where I can apply my skills, collaborate with driven teams, and grow in a professional environment.</div>
+
+        <h1 className='px-4 md:px-12 lg:px-28 text-2xl md:text-3xl font-bold pt-2'>Pavankumar Khaire</h1>
+
+        <div className='px-4 md:px-12 lg:px-28 flex flex-col lg:flex-row justify-between gap-4'>
+          <div className='p-2 text-justify'>
+            I’m a final-year MSc in Computer Applications student with strong technical skills in full-stack development using the MERN stack, Java, and MySQL. I enjoy solving real-world problems through clean, efficient code and intuitive user experiences. With a solid grasp of both frontend and backend technologies, I’m passionate about creating scalable web applications and continuously expanding my knowledge. I’m currently seeking a software development role where I can apply my skills, collaborate with driven teams, and grow in a professional environment.
+          </div>
           <div className='space-y-2'>
-            <LinkComponent startIcon={<Resume />} linkName={'Resume'} link={'/Pavan-Resume.pdf'} // Path from public folder
-              download />
+            <LinkComponent startIcon={<Resume />} linkName={'Resume'} link={'/Pavan-Resume.pdf'} download />
             <LinkComponent startIcon={<GitHub />} linkName={'Git-Hub'} link={'https://github.com/pavankhairee'} />
             <LinkComponent startIcon={<LinkdenIcon />} linkName={'Linked'} link={'https://www.linkedin.com/in/pavankumar-khaire-95a592213/'} />
-            <LinkComponent startIcon={<Mail />} linkName={'Mail'} link={'mailto:pavankhaire2002@gmail.com?subject=Hello&body=I%20want%20to%20connect%20with%20you'}
-            />
+            <LinkComponent startIcon={<Mail />} linkName={'Mail'} link={'mailto:pavankhaire2002@gmail.com?subject=Hello&body=I%20want%20to%20connect%20with%20you'} />
           </div>
         </div>
 
-        <div className='pl-28 pr-28 pt-2'>
-          <h1 className='text-3xl bg-gray-300 p-2'>MY WORK</h1>
-          <div className='flex justify-between gap-2 cursor-pointer'>
-
+        <div className='px-4 md:px-12 lg:px-28 pt-4'>
+          <h1 className='text-xl md:text-2xl lg:text-3xl bg-gray-300 p-2'>MY WORK</h1>
+          <div className='flex flex-col md:flex-row justify-between gap-4 pt-2'>
             <ProjectComponent onClick={() => setShowProject1(true)} name={'The Social Brain'} image={'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRo9ZMzEIOwklMVioIiJBYnUZ9VVh0uwcHpDA&s'} />
             {showProject1 && (
               <Popup
@@ -90,16 +91,13 @@ function App() {
                   "Built with MongoDB, Express.js, React.js, and Node.js using TypeScript for better type safety.",
                   "Integrated turn-based logic to support in-chat games or alternate actions."
                 ]}
-              />
-
-            )}
-
+              />)}
           </div>
         </div>
 
-        <div className='pl-28 pr-28 pt-2'>
-          <h1 className='text-3xl bg-gray-300 p-2'>TOOLS AND TECHNOLOGY</h1>
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6 p-6">
+        <div className='px-4 md:px-12 lg:px-28 pt-4'>
+          <h1 className='text-xl md:text-2xl lg:text-3xl bg-gray-300 p-2'>TOOLS AND TECHNOLOGY</h1>
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 p-4">
             <ToolComponents name="React" image="/icons/react.png" />
             <ToolComponents name="Node.js" image="/icons/node.png" />
             <ToolComponents name="MongoDB" image="/icons/mongodb.png" />
@@ -111,16 +109,14 @@ function App() {
           </div>
         </div>
 
-        <div className="text-white px-4 py-2 flex justify-center">
-          <div className="p-2 rounded" style={{ backgroundColor: '#2b3137' }}>
+        <div className="text-white px-4 py-6 flex justify-center">
+          <div className="w-full max-w-4xl p-2 rounded" style={{ backgroundColor: '#2b3137' }}>
             <GitHubCalendar colorScheme="light" username="pavankhairee" />
           </div>
         </div>
-
-
-      </div >
+      </div>
     </>
-  )
+  );
 }
 
 export default App
