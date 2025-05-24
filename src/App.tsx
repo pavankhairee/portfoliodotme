@@ -9,6 +9,7 @@ import { ProjectComponent } from './componets/ProjectComponent'
 import { ToolComponents } from './componets/ToolComponent'
 import { useState } from 'react'
 import { Popup } from './componets/ProjectPopUp'
+import GitHubCalendar from 'react-github-calendar'
 
 function App() {
 
@@ -109,6 +110,8 @@ function App() {
             <ToolComponents name='Express' image='/icons/express.png' />
           </div>
         </div>
+
+        <GitHubCalendar username='pavankhairee' />
       </div >
     </>
   )
