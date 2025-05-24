@@ -109,8 +109,8 @@ function App() {
           </div>
         </div>
 
-        <div className="text-white px-4 py-6 flex justify-center">
-          <div className="w-full max-w-4xl p-2 rounded" style={{ backgroundColor: '#2b3137' }}>
+        <div className="px-4 py-6 flex justify-center">
+          <div className="w-full max-w-4xl p-2 rounded">
             <GitHubCalendar colorScheme="light" username="pavankhairee" />
           </div>
         </div>
